@@ -2,28 +2,28 @@ function sendToWhatsApp() {
   const uid = document.getElementById("uid").value.trim();
   const name = document.getElementById("name").value.trim();
   const service = document.getElementById("diamonds").value;
-  const paymentMethod = document.getElementById("payment method ").value;
+  const payment = document.getElementById("payment method ").value;
   const sender = document.getElementById("sender").value.trim();
 
-  if (!uid || !service || !paymentMethod || !sender) {
-    alert("⚠️ Zaroori fields complete karein.");
+  if (!uid || !service || !payment || !sender) {
+    alert("Please fill all required fields.");
     return;
   }
 
-  const message = `📲 HACKING SURVICE REQUEST RECEIVED:
+  const message = `📩 NEW HACKING REQUEST
 
-🆔 UID: ${uid}
+🔐 UID: ${uid}
 👤 Name: ${name || "Not Provided"}
-🛠️ Selected Survice: ${service}
-💳 Payment Method: ${paymentMethod}
-📞 Contact Email/Number: ${sender}
-📷 ID Photo: (User Uploaded) — Please Check
+🛠️ Selected Service: ${service}
+💸 Payment Method: ${payment}
+📱 Email/Number: ${sender}
+📷 Photo: Attached (User uploaded)
 
-🚀 Jaldi contact karein user se!`;
+📞 Please contact the user for further action.`;
 
-  // Aapka WhatsApp number international format me (Pakistan: +92)
-  const whatsappNumber = "923448089399";
+  const phoneNumber = "03448089399"; // WhatsApp number
   const encodedMessage = encodeURIComponent(message);
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   window.open(whatsappURL, "_blank");
+}
